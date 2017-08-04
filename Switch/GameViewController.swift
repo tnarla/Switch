@@ -17,23 +17,27 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = GameScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
-                // Present the scene
                 view.presentScene(scene)
+                
+                //scene.run(SKAction.playSoundFileNamed("song.mp3", waitForCompletion: false))
+                
             }
             
-            view.ignoresSiblingOrder = true
-            
+            view.ignoresSiblingOrder = false
+            //view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
+            
         }
     }
+    
 
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
